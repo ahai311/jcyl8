@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getMainActivitySource } from './main-activity-java.mjs';
 import { resolveCiAppDisplayName, writeAppNameStrings } from './lib/app-display-name.mjs';
+import { normalizeTargetUrl, targetWithNativeParam } from './lib/target-url.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SHELL_PATCH_MARKER = 'shellPatchVersion=34';
@@ -105,6 +106,17 @@ for (const base of [path.join(root, 'www'), path.join(root, 'android/app/src/mai
 }
 
 writeAppNameStrings(root, resolveCiAppDisplayName(process.env, root));
+
+const targetUrl = normalizeTargetUrl(process.env.TARGET_URL || process.env.APP_TARGET_URL, '');
+const androidResValues = path.join(root, 'android/app/src/main/res/values');
+fs.mkdirSync(androidResValues, { recursive: true });
+const safeTarget = targetWithNativeParam(targetUrl).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+fs.writeFileSync(
+  path.join(androidResValues, 'ustation_target.xml'),
+  `<?xml version="1.0" encoding="utf-8"?>\n<resources>\n  <string name="app_target_url">${safeTarget}</string>\n</resources>\n`,
+  'utf8',
+);
+console.log('finalize: wrote ustation_target.xml ->', targetWithNativeParam(targetUrl));
 
 const manifestPath = path.join(root, 'android/app/src/main/AndroidManifest.xml');
 if (fs.existsSync(manifestPath)) {
