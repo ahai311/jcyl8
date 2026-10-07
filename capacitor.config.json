@@ -1,6 +1,6 @@
 {
   "appId": "com.uzhan.app",
-  "appName": "jcyl8",
+  "appName": "App",
   "webDir": "www",
   "android": {
     "allowMixedContent": true,
