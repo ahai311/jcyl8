@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xhdpi_ic_launcher_background.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.uzhan.app-main-23:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxhdpi_ic_launcher_background.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/drawable_splash_launch.xml.flat",
+        "source": "com.uzhan.app-main-23:/drawable/splash_launch.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.uzhan.app-main-23:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/layout_activity_main.xml.flat",
+        "source": "com.uzhan.app-main-23:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-hdpi_ic_launcher_background.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-hdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-mdpi_ic_launcher_background.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/drawable-nodpi_splash.png.flat",
+        "source": "com.uzhan.app-main-23:/drawable-nodpi/splash.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/xml_config.xml.flat",
+        "source": "com.uzhan.app-main-23:/xml/config.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/xml_file_paths.xml.flat",
+        "source": "com.uzhan.app-main-23:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.uzhan.app-main-23:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/xml_network_security_config.xml.flat",
+        "source": "com.uzhan.app-main-23:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.uzhan.app-release-22:/drawable_splash.png.flat",
+        "source": "com.uzhan.app-main-23:/drawable/splash.png"
+    }
+]
