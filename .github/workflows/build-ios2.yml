@@ -123,6 +123,9 @@ jobs:
           TARGET_URL: ${{ inputs.target_url }}
         run: node scripts/verify-ios-build.mjs
 
+      - name: Apply iOS launcher icons
+        run: node scripts/apply-ios-assets.mjs
+
       - name: Build unsigned IPA
         env:
           VERSION_NAME: ${{ inputs.version_name }}
