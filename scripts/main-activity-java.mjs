@@ -57,12 +57,20 @@ public class MainActivity extends AppCompatActivity {
         // edge-to-edge, drawing the WebView under the status bar (back button hidden behind
         // the system clock). Apply the status/navigation bar insets as padding ourselves:
         // on devices where decor-fits is honored the insets are already consumed (0 => no-op).
+        int insetFallbackTop = getStatusBarHeightPx();
         ViewCompat.setOnApplyWindowInsetsListener(rootLayout, (v, windowInsets) -> {
             int top = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
             int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
-            v.setPadding(v.getPaddingLeft(), top, v.getPaddingRight(), bottom);
+            // Never let content ride under the status bar: use the real inset, but keep at
+            // least the known status-bar height as a floor (covers pages where insets do not
+            // dispatch). This pushes the WebView down on every route, not just the homepage.
+            v.setPadding(v.getPaddingLeft(), Math.max(top, insetFallbackTop), v.getPaddingRight(), bottom);
             return windowInsets;
         });
+        // Baseline padding applied immediately so the WebView is inset even before the first
+        // inset dispatch (some lottery/hall pages render a top bar at y=0 and would otherwise
+        // sit under the status bar / back button becomes untappable).
+        rootLayout.setPadding(0, insetFallbackTop, 0, 0);
 
         if (getResources().getBoolean(R.bool.launch_has_splash)) {
             splashView = new ImageView(this);
