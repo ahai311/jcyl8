@@ -18,16 +18,25 @@ if [ -f Podfile ]; then
   pod install --repo-update
 fi
 
-WORKSPACE="App.xcworkspace"
 SCHEME="App"
-if [ ! -d "$WORKSPACE" ]; then
-  WORKSPACE="App.xcodeproj"
+# Prefer the workspace (created by CocoaPods); fall back to the bare project.
+# xcodebuild needs -project (not -workspace) for a .xcodeproj.
+if [ -d "App.xcworkspace" ]; then
+  PROJECT_ARG="-workspace"
+  PROJECT_REF="App.xcworkspace"
+elif [ -d "App.xcodeproj" ]; then
+  PROJECT_ARG="-project"
+  PROJECT_REF="App.xcodeproj"
+else
+  echo "::error::neither App.xcworkspace nor App.xcodeproj found"
+  ls -la
+  exit 1
 fi
 
-echo "[ios-build] workspace=$WORKSPACE scheme=$SCHEME"
+echo "[ios-build] ${PROJECT_ARG}=${PROJECT_REF} scheme=${SCHEME}"
 
 xcodebuild \
-  -workspace "$WORKSPACE" \
+  "$PROJECT_ARG" "$PROJECT_REF" \
   -scheme "$SCHEME" \
   -configuration Release \
   -destination 'generic/platform=iOS' \
