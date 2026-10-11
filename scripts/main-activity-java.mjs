@@ -24,10 +24,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    // shellPatchVersion=34 — WebView file chooser for <input type=file>
+    // shellPatchVersion=35 — WindowInsets margin: keep WebView below status bar (Android 15+ edge-to-edge ignored setDecorFitsSystemWindows)
     private static final int MIN_CHROME_MAJOR = 80;
     private static final int SPLASH_MIN_MS = 600;
     private static final int FILE_CHOOSER_REQUEST = 1001;
@@ -51,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
         rootLayout = new FrameLayout(this);
         rootLayout.setBackgroundColor(0xFF0B0F1A);
+        // Android 15+ (targetSdk>=35) ignores setDecorFitsSystemWindows(true) and forces
+        // edge-to-edge, drawing the WebView under the status bar (back button hidden behind
+        // the system clock). Apply the status/navigation bar insets as padding ourselves:
+        // on devices where decor-fits is honored the insets are already consumed (0 => no-op).
+        ViewCompat.setOnApplyWindowInsetsListener(rootLayout, (v, windowInsets) -> {
+            int top = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+            int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), top, v.getPaddingRight(), bottom);
+            return windowInsets;
+        });
 
         if (getResources().getBoolean(R.bool.launch_has_splash)) {
             splashView = new ImageView(this);
@@ -109,7 +121,9 @@ public class MainActivity extends AppCompatActivity {
             ViewGroup.LayoutParams.WRAP_CONTENT
         );
         lp.gravity = android.view.Gravity.TOP | android.view.Gravity.END;
-        lp.topMargin = getStatusBarHeightPx() + dp(12);
+        // rootLayout is already padded down by the status-bar inset (see insets listener),
+        // so only a small offset is needed here.
+        lp.topMargin = dp(12);
         lp.setMarginEnd(dp(16));
         rootLayout.addView(splashSkipButton, lp);
     }
