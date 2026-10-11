@@ -112,7 +112,7 @@ jobs:
           VERSION_NAME: ${{ inputs.version_name }}
           VERSION_CODE: ${{ inputs.version_code }}
         run: |
-          npm ls @capacitor/ios >/dev/null 2>&1 || npm install @capacitor/core@7.2.0 @capacitor/ios@7.2.0 --no-save
+          npm ls @capacitor/ios >/dev/null 2>&1 || npm install @capacitor/core@8.5.3 @capacitor/ios@8.5.3 --no-save
           rm -rf ios
           npx cap add ios
           npx cap sync ios
